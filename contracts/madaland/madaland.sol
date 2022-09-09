@@ -21,9 +21,7 @@ contract StandardToken is Token {
         _;
     }
 
-    function transfer(address _to, uint256 _value)
-    public
-    returns (bool success) {
+    function transfer(address _to, uint256 _value)publicreturns (bool success) {
         if (balances[msg.sender] >= _value && _value > 0 && balances[_to] + _value > balances[_to]) {
             balances[msg.sender] = SafeMath.sub(balances[msg.sender], _value);
             balances[_to] = SafeMath.add(balances[_to], _value);
